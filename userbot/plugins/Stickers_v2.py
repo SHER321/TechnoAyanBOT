@@ -33,7 +33,7 @@ from userbot import ALIVE_NAME
 from userbot.exclusive import STICKER_PACK_NAME, ANIMATED_STICKER_PNAME
 
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "No Name Set Yet, Check @TechnoAyanOfficial"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "No Name Set Yet, Check @NGYNY"
 
 @borg.on(admin_cmd(pattern="keng ?(.*)"))
 async def _(event):
@@ -43,7 +43,7 @@ async def _(event):
         await event.edit("Reply to a photo or sticker to own")
         return
     reply_message = await event.get_reply_message()
-    sticker_emoji = "🔥"
+    sticker_emoji = "💜"
     input_str = event.pattern_match.group(1)
     if input_str:
         sticker_emoji = input_str
@@ -54,15 +54,15 @@ async def _(event):
     packshortname = f"PremiumStickers_{userid}"  # format: Uni_Borg_userid
 
     is_a_s = is_it_animated_sticker(reply_message)
-    file_ext_ns_ion = "@TechnoAyanOfficial_Sticker.png"
+    file_ext_ns_ion = "@NGYNY_Sticker.png"
     file = await borg.download_file(reply_message.media)
     uploaded_sticker = None
     if is_a_s:
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
         packname = f"{ANIMATED_STICKER_PNAME}"
-        if userid == 1111847352:
-            packshortname = "TechnoAyanOfficial_animated"
+        if userid == 1171354752:
+            packshortname = "NGYNY_animated"
         else:
             packshortname = f"PremiumStickers_Animated_{userid}" # format: Uni_Borg_userid
     elif not is_message_image(reply_message):
